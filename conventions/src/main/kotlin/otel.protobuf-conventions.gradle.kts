@@ -9,11 +9,11 @@ plugins {
 protobuf {
   protoc {
     // The artifact spec for the Protobuf Compiler
-    artifact = "com.google.protobuf:protoc:3.3.0"
+    artifact = "com.google.protobuf:protoc:3.3.0:osx-x86_64"
   }
   plugins {
     id("grpc") {
-      artifact = "io.grpc:protoc-gen-grpc-java:1.6.0"
+      artifact = "io.grpc:protoc-gen-grpc-java:1.6.0:osx-x86_64"
     }
   }
   generateProtoTasks {

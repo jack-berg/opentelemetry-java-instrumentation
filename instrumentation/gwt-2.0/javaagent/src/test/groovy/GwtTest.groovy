@@ -11,16 +11,20 @@ import io.opentelemetry.semconv.trace.attributes.SemanticAttributes
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.util.resource.Resource
 import org.eclipse.jetty.webapp.WebAppContext
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty
+import org.junit.jupiter.api.condition.DisabledOnOs
 import org.openqa.selenium.chrome.ChromeOptions
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.testcontainers.Testcontainers
 import org.testcontainers.containers.BrowserWebDriverContainer
 import org.testcontainers.containers.output.Slf4jLogConsumer
+import spock.lang.IgnoreIf
 import spock.lang.Shared
 
 import java.util.concurrent.TimeUnit
 
+@IgnoreIf({ System.getProperty("os.arch").equals("aarch64") })
 class GwtTest extends AgentInstrumentationSpecification implements HttpServerTestTrait<Server> {
   private static final Logger logger = LoggerFactory.getLogger(GwtTest)
 

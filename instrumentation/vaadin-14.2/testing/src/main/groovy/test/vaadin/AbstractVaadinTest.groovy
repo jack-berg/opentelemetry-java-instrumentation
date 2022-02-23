@@ -20,10 +20,12 @@ import org.springframework.context.ConfigurableApplicationContext
 import org.testcontainers.Testcontainers
 import org.testcontainers.containers.BrowserWebDriverContainer
 import org.testcontainers.containers.output.Slf4jLogConsumer
+import spock.lang.IgnoreIf
 import spock.lang.Shared
 
 import java.util.concurrent.TimeUnit
 
+@IgnoreIf({ System.getProperty("os.arch").equals("aarch64") })
 abstract class AbstractVaadinTest extends AgentInstrumentationSpecification implements HttpServerTestTrait<ConfigurableApplicationContext> {
   private static final Logger logger = LoggerFactory.getLogger(AbstractVaadinTest)
 
