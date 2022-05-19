@@ -39,7 +39,7 @@ jobs:
 
       - name: Upload deadlock detector artifacts if any
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: deadlock-detector-build
           path: /tmp/deadlock-detector-*
@@ -47,7 +47,7 @@ jobs:
 
       - name: Upload OpenJ9 javacore files if any
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: javacore-build
           path: "**/javacore.*.txt"
@@ -126,7 +126,7 @@ jobs:
 
       - name: Upload deadlock detector artifacts if any
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: deadlock-detector-test-${{ matrix.test-java-version }}
           path: /tmp/deadlock-detector-*
@@ -134,7 +134,7 @@ jobs:
 
       - name: Upload OpenJ9 javacore files if any
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: javacore-test-${{ matrix.test-java-version }}
           path: "**/javacore.*.txt"
